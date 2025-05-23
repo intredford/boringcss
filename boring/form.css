@@ -1,0 +1,420 @@
+:root {
+	--button-pseudovolume: 2px;
+}
+
+*[disabled], *:disabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+	color: color-mix(in oklab, currentColor, transparent 20%)
+}
+
+button,
+::file-selector-button {
+	--color: var(--color-grayish);
+
+	--top-pct: 85%;
+	--bottom-pct: 65%;
+	--hover-top-pct: 60%;
+	--hover-bottom-pct: 50%;
+
+	--border-pct: 80%;
+	--hover-border-pct: 20%;
+
+	--shadow-pct: 70%;
+	--shadow-color: color-mix(in srgb, var(--color), #00000035 var(--shadow-pct));
+
+	background-image: linear-gradient(
+		color-mix(in oklab, var(--color), var(--color-white) var(--top-pct)),
+		color-mix(in oklab, var(--color), var(--color-white) var(--bottom-pct))
+	);
+
+	border: 1px solid;
+	border-color: color-mix(in srgb, var(--color), var(--color-light) var(--border-pct));
+	border-radius: 0.4em;
+	padding: 0 1em;
+	height: 2em;
+	box-shadow: 0 var(--button-pseudovolume) 0 var(--shadow-color);
+	font-size: 1em;
+	font-family: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	display: block;
+	text-wrap: nowrap;
+	color: inherit;
+}
+
+button:hover,
+button:active,
+::file-selector-button:hover,
+::file-selector-button:active {
+	background-image: linear-gradient(
+		color-mix(in oklab, var(--color), var(--color-white) var(--hover-top-pct)),
+		color-mix(in oklab, var(--color), var(--color-white) var(--hover-bottom-pct))
+	);
+	border-color: color-mix(in srgb, var(--color), var(--color-light) var(--hover-border-pct));
+}
+
+button.blue,
+input.blue::file-selector-button {
+	--color: var(--color-blue);
+	--top-pct: 90%;
+	--bottom-pct: 80%;
+	--hover-top-pct: 80%;
+	--hover-bottom-pct: 70%;
+	--border-pct: 80%;
+	--hover-border-pct: 70%;
+	--shadow-pct: 70%;
+}
+
+button.red,
+input.red::file-selector-button {
+	--color: var(--color-red);
+	--top-pct: 90%;
+	--bottom-pct: 80%;
+	--hover-top-pct: 80%;
+	--hover-bottom-pct: 70%;
+	--border-pct: 80%;
+	--hover-border-pct: 70%;
+	--shadow-pct: 70%;
+}
+
+button.green,
+input.green::file-selector-button {
+	--color: var(--color-green);
+	--top-pct: 90%;
+	--bottom-pct: 80%;
+	--hover-top-pct: 80%;
+	--hover-bottom-pct: 70%;
+	--border-pct: 80%;
+	--hover-border-pct: 70%;
+	--shadow-pct: 70%;
+}
+
+button.purple,
+input.purple::file-selector-button {
+	--color: var(--color-purple);
+	--top-pct: 90%;
+	--bottom-pct: 80%;
+	--hover-top-pct: 80%;
+	--hover-bottom-pct: 70%;
+	--border-pct: 80%;
+	--hover-border-pct: 70%;
+	--shadow-pct: 70%;
+}
+
+button.orange,
+input.orange::file-selector-button {
+	--color: var(--color-orange);
+	--top-pct: 90%;
+	--bottom-pct: 80%;
+	--hover-top-pct: 80%;
+	--hover-bottom-pct: 70%;
+	--border-pct: 80%;
+	--hover-border-pct: 70%;
+	--shadow-pct: 70%;
+}
+
+button.yellow,
+input.yellow::file-selector-button {
+	--color: var(--color-yellow);
+	--top-pct: 65%;
+	--bottom-pct: 55%;
+	--hover-top-pct: 50%;
+	--hover-bottom-pct: 30%;
+	--border-pct: 60%;
+	--hover-border-pct: 50%;
+	--shadow-pct: 50%;
+}
+
+button.black,
+input.black::file-selector-button {
+	--color: var(--color-black);
+	--top-pct: 45%;
+	--bottom-pct: 30%;
+	--hover-top-pct: 30%;
+	--hover-bottom-pct: 20%;
+	--border-pct: 20%;
+	--hover-border-pct: 10%;
+	--shadow-color: var(--color-black);
+	color: var(--color-white);
+}
+
+button:active:not(:disabled),
+::file-selector-button:active,
+input[type="file"]:active::file-selector-button {
+	position: relative;
+	/* Using transform causes button to resize by 1px on Firefox. It's probably unfixable.
+	Has something to do with anti-aliasing: https://stackoverflow.com/questions/39828912/css-translate-is-affecting-element-size-on-chrome */
+	/* If have a button with position: absolute | fixed | sticky, wrap it inside div and apply position to that div. */
+	top: var(--button-pseudovolume);
+	box-shadow: none;
+}
+
+button.block {
+	width: 100%;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="numeric"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+input[type="search"],
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+textarea,
+select {
+	font-family: inherit;
+	padding: 0.3em 0.4em;
+	margin-block-start: 2px;
+  	border: 1px solid var(--color-grayish);
+	background-color: var(--color-white);
+	border-radius: 0.3em;
+	display: block;
+	font-size: 1rem;
+}
+
+input[type="date"],
+input[type="datetime-local"],
+input[type="time"],
+input[type="month"],
+input[type="week"] {
+	font-family: var(--font-mono);
+}
+
+input:user-invalid:not(fuck-specificity),
+input.invalid:not(fuck-specificity) {
+	border-color: var(--color-red);
+	outline: 1px solid var(--color-red);
+}
+
+textarea {
+	resize: vertical;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	margin: 0;
+	margin-inline-end: 0.25em;
+}
+
+label {
+	display: block;
+	font-size: 85%;
+}
+
+label > input,
+label > textarea {
+	font-size: 1rem;
+}
+
+input[type="range"].vertical {
+	direction: rtl;
+	writing-mode: vertical-lr;
+}
+
+input[type="file"] {
+	padding-block-end: var(--button-pseudovolume);
+	font-size: 0.8em;
+  	font-family: inherit;
+}
+	::file-selector-button {
+		display: inline-block;
+		font-size: 1em;
+		margin-inline-end: 0.5em;
+	}
+
+fieldset {
+	border: none;
+	padding: 0.5em 1em 1em 1em;
+	background-color: var(--color-lighter);
+	border-radius: 0.4em;
+}
+
+fieldset label:not(:first-of-type):not(type="radio"):not(type="checkbox") {
+	margin-block-start: 1em;
+}
+
+fieldset fieldset {
+	margin-block-start: 1em;
+	padding-block-end: 0;
+}
+
+fieldset > legend {
+	font-weight: 500;
+	background-image: linear-gradient(0deg, var(--color-lighter), transparent);
+	padding: 0 4px;
+	margin-inline-start: -4px;
+}
+
+details summary {
+	cursor: pointer;
+}
+	details summary::marker {
+		content: "";
+	}
+	details summary {
+		text-decoration: underline;
+		text-decoration-style: dotted;
+		text-underline-offset: 0.25em;
+		text-decoration-color: color-mix(in srgb, currentColor, transparent 50%);
+		user-select: none;
+	}
+	
+	details[open] summary {
+		text-decoration: none;
+	}
+
+details > *:not(summary) {
+	padding-inline-start: 1em;
+	font-size: 80%;
+}
+	details > p {
+		margin-block-start: 0.5em;
+		margin-block-end: 0.5em;
+	}
+	details :first-of-type {
+		margin-block-start: 0;
+	}
+
+/* styling progress is tricky! */
+progress {
+	display: block;
+	width: 100%;
+	height: 3px;
+	border: none;
+	border-radius: 0;
+	color: inherit;
+	appearance: none; -webkit-appearance: none;
+	background-color: var(--color-light);
+	margin-block-end: 0.8em;
+}
+/* Firefox */
+progress::-moz-progress-bar {
+	background-color: currentColor;
+}
+/* Chrome, Edge, Safari */
+progress::-webkit-progress-bar {
+	background-color: transparent;
+}
+progress::-webkit-progress-value {
+	background-color: currentColor;
+	box-shadow: none;
+}
+
+.spinner {
+	position: relative;
+}
+	.spinner::after {
+		content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'><g stroke='currentColor'><circle cx='12' cy='12' r='9.5' fill='none' stroke-linecap='round' stroke-width='0.15em'><animate attributeName='stroke-dasharray' calcMode='spline' dur='1.5s' keySplines='0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1' keyTimes='0;0.475;0.95;1' repeatCount='indefinite' values='0 150;42 150;42 150;42 150'/><animate attributeName='stroke-dashoffset' calcMode='spline' dur='1.5s' keySplines='0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1' keyTimes='0;0.475;0.95;1' repeatCount='indefinite' values='0;-16;-59;-59'/></circle><animateTransform attributeName='transform' dur='2s' repeatCount='indefinite' type='rotate' values='0 12 12;360 12 12'/></g></svg>");
+		vertical-align: middle;
+	}
+
+
+
+@media screen and (prefers-color-scheme: dark) {
+	button,
+	::file-selector-button {
+		--color: var(--color-dark);
+
+		--top-pct: 55%;
+		--bottom-pct: 60%;
+		--hover-top-pct: 45%;
+		--hover-bottom-pct: 50%;
+
+		--border-pct: 90%;
+		--hover-border-pct: 75%;
+		--shadow-pct: 75%;
+	}
+	button.blue,
+	input.blue::file-selector-button {
+		--top-pct: 40%;
+		--bottom-pct: 50%;
+		--hover-top-pct: 30%;
+		--hover-bottom-pct: 40%;
+		
+		--border-pct: 80%;
+		--hover-border-pct: 70%;
+		--shadow-pct: 70%;
+	}
+
+	button.red,
+	input.red::file-selector-button {
+		--top-pct: 45%;
+		--bottom-pct: 55%;
+		--hover-top-pct: 35%;
+		--hover-bottom-pct: 45%;
+		
+		--border-pct: 80%;
+		--hover-border-pct: 70%;
+		--shadow-pct: 70%;
+	}
+
+	button.green,
+	input.green::file-selector-button {
+		--top-pct: 43%;
+		--bottom-pct: 53%;
+		--hover-top-pct: 33%;
+		--hover-bottom-pct: 43%;
+
+		--border-pct: 80%;
+		--hover-border-pct: 70%;
+		--shadow-pct: 70%;
+	}
+
+	button.purple,
+	input.purple::file-selector-button {
+		--top-pct: 45%;
+		--bottom-pct: 55%;
+		--hover-top-pct: 35%;
+		--hover-bottom-pct: 45%;
+
+		--border-pct: 80%;
+		--hover-border-pct: 70%;
+		--shadow-pct: 70%;
+	}
+
+	button.orange,
+	input.orange::file-selector-button {
+		--top-pct: 43%;
+		--bottom-pct: 53%;
+		--hover-top-pct: 33%;
+		--hover-bottom-pct: 43%;
+
+		--border-pct: 80%;
+		--hover-border-pct: 70%;
+		--shadow-pct: 70%;
+	}
+
+	button.yellow,
+	input.yellow::file-selector-button {
+		--top-pct: 45%;
+		--bottom-pct: 55%;
+		--hover-top-pct: 35%;
+		--hover-bottom-pct: 45%;
+
+		--border-pct: 75%;
+		--hover-border-pct: 70%;
+		--shadow-pct: 80%;
+	}
+
+	button.black,
+	input.black::file-selector-button {
+		--color: var(--color-black);
+		
+		--top-pct: 0%;
+		--bottom-pct: 8%;
+		--hover-top-pct: 0%;
+		--hover-bottom-pct: 0%;
+
+		--border-pct: 8%;
+		--hover-border-pct: 0%;
+		--shadow-color: var(--color-black);
+	}
+}

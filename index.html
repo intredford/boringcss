@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Boring CSS Library</title>
+	<meta name="description" content="Just a boring CSS library.">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- fonts, optional but recommended -->
+	<link rel="preload" href="./boring/font/commissioner.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="./boring/font/fira-code-regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel = "stylesheet" href = "./boring/font/commissioner.css">
+	<link rel = "stylesheet" href = "./boring/font/fira-code.css">
+
+	<!-- this library -->
+	<link rel = "stylesheet" href = "./boring/base.css">
+	<link rel = "stylesheet" href = "./boring/layout.css">
+	<link rel = "stylesheet" href = "./boring/text.css">
+	<link rel = "stylesheet" href = "./boring/form.css">
+
+	<!-- additional css for this page, not a part of the library -->
+	<link rel = "stylesheet" href = "./index.css">
+	
+</head>
+<body>
+	
+	<div class = "fade"></div>
+
+	<menu>
+
+		<div class = "menu-title">
+			Boring CSS Library
+		</div>
+
+		<div id = "nav-toggle">
+			<b>☰</b>&nbsp; Menu
+		</div>
+	
+		<nav>
+
+			<ol type = "none" id = "toc">
+				<li><strong>Contents</strong></li>
+			</ol>
+
+			<p class = "search">
+				<kbd>Ctrl</kbd><kbd>F</kbd> to search
+			</p>
+
+			<hr>
+			
+			<strong>Author</strong>
+			<address>
+				Github: <a href = "//github.com/intredford" class="link">@intredford</a><br>
+				Email: <a href = "mailto:mail@dimius.ru" class="link">mail@dimius.ru</a><br>
+				Blog<sup>ru</sup>: <a href = "//blog.dimius.ru" class="link">rant.dimius.ru</a><br>
+			</address>
+
+		</nav>
+	</menu>
+	
+	<section class = "container">
+
+		<h1 class = "main-title">Boring CSS</h1>
+
+		<p>A generic style library for simple projects.</p>
+
+	</section>
+
+	<section class = "container">
+
+		<h2 id = "introduction">Introduction</h2>
+
+		<p>
+			This library is a lightweight CSS toolkit for quick styling of small user interfaces.
+			It avoids enforcing any specific trendy design choices and does not attempts to be a complex UI framework.
+			Instead, it's just a collection of basic styles for common HTML elements.
+		</p>
+
+		<p>
+			Don't be afraid to customize it. In fact, I encourage you to do so!
+		</p>
+
+	</section>
+
+	<section class = "container">
+
+		<h2 id = "installation">Installation</h2>
+
+		<p>It's simple. Just download these files need and import them into your project however you prefer:</p>
+
+		<ul>
+			<li>
+				<a href = "/boring/base.css" class="link" target="_blank">
+					base.css;
+				</a>
+			</li>
+			<li>
+				<a href = "/boring/text.css" class="link" target="_blank">
+					text.css
+				</a>
+				— static text elements, like headings, lists, code, tables, etc;
+			</li>
+			<li>
+				<a href = "/boring/layout.css" class="link" target="_blank">
+					layout.css
+				</a>
+				— very basic layout components: just container and row;
+			</li>
+			<li>
+				<a href = "/boring/form.css" class="link" target="_blank">
+					form.css
+				</a>
+				— form elements and other interactive stuff;
+			</li>
+			<li>
+				<a href = "boring/font/commissioner.css" class="link" target="_blank">commissioner.css,</a>
+				<a href = "boring/font/commissioner.woff2" class="link" target="_blank">commissioner.woff2;</a>
+			</li>
+			<li>
+				<a href = "boring/font/fira-code.css" class="link" target="_blank">fira-code.css,</a>
+				<a href = "boring/font/fira-code-regular.woff2" class="link" target="_blank">fira-code-regular.woff2.</a>
+			</li>
+		</ul>
+
+		<p>Or just download the <a href = "//github.com/intredford/boringcss" class="link" target="_blank">repository.</a></p>
+
+		<p><i>Styles are split between files just to make editing easier. This library isn't actually modular. In production you should consider bundling it all into a single file.</i></p>
+
+	</section>
+
+	<section id = "demo">
+
+		<div class = "container">
+
+			<h1>Demo</h1>
+
+			<p>Below you'll find all the components available. To see the code, just inspect the source code of the section in your browser.</p>
+
+			<p>Source code is also available on <a href = "//github.com/intredford/boringcss" class="link" target="_blank">Github</a>.</p>
+
+			<h2 id = "text">Text</h2>
+
+			<p>This section demonstrates the styling of typographic and generally static elements.</p>
+
+			<h3 id = "headings-and-paragraphs">Headings and Paragraphs</h3>
+
+			<p>
+				Styles of text and headings heavily relies on your desired structure of page,
+				and you will probably have to edit these styles.
+				On this site, only three levels of headings are used.
+			</p>
+
+			<p>Aside from classic heading tags, you can use <code>.h1</code> — <code>.h6</code> classes.</p>
+
+			<h3 id = "text-and-colors">Text colors</h3>
+
+			<p>Text can be colored with classes:</p>
+
+			<div>
+				<code class="text-blue">.text-blue </code>
+				<code class="text-red">.text-red </code>
+				<code class="text-green">.text-green </code>
+				<code class="text-purple">.text-purple </code>
+				<code class="text-yellow">.text-yellow </code>
+				<code class="text-orange">.text-orange </code>
+				<code class="text-black">.text-black </code>
+				<code class="text-white">.text-white </code>
+			</div>
+
+			<p>In dark theme black and white are reversed.</p>
+
+			<h3 id = "lists">Lists</h3>
+
+			<p>By default, <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> look like this:</p>
+
+			<div class = "row">
+				<div class = "example-list">
+					Unordered list:
+					<ul>
+						<li>Pulp Fiction;</li>
+						<li>Reservoir Dogs;</li>
+						<li>Kill Bill;</li>
+						<li>Hateful Eight;</li>
+						<li>Once Upon a Time in Hollywood;</li>
+						<li>Django Unchained;</li>
+						<li>Inglourious Basterds.</li>
+					</ul>
+				</div>
+				<div class = "example-list">
+					Ordered list:
+					<ol>
+						<li>Get up;</li>
+						<li>Have breakfast;</li>
+						<li>Watch TV;</li>
+						<li>Have a dinner;</li>
+						<li>Take a nap;</li>
+						<li>Watch TV;</li>
+						<li>Go to bed.</li>
+					</ol>
+				</div>
+			</div>
+
+			<p>To change the marker, edit <code>--list-character</code> variable in your <code>text.css</code>.</p>
+
+			<h3 id = "code">Code</h3>
+
+			<p>
+				<code>&lt;code&gt; looks like this</code>
+			</p>
+
+<pre>
+<code>const message = "&lt;pre&gt; looks like this"
+setTimeout(() => {
+  console.log(message)
+}, 7000)</code>
+</pre>
+
+			<h3 id = "kbd">Keybind</h3>
+
+			<p><code>&ltkbd&gt</code> looks like this: <kbd>Alt</kbd><kbd>F4</kbd>, <kbd>⌘</kbd><kbd>С</kbd>, etc.</p>
+
+			<h3 id = "tables">Table</h3>
+
+			<p>Default table:</p>
+
+			<table class = "hanging">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Address</th>
+						<th>Franchise</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Alucard</td>
+						<td>500s</td>
+						<td>Hellsing Manor, UK</td>
+						<td>Hellsing</td>
+					</tr>
+					<tr>
+						<td>Sherlock Holmes</td>
+						<td>34</td>
+						<td>221B Baker Street, London, UK</td>
+						<td>Sherlock Holmes</td>
+					</tr>
+					<tr>
+						<td>Winnie the Pooh</td>
+						<td>3</td>
+						<td>Hundred Acre Wood</td>
+						<td>Winnie the Pooh</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p><code>.bordered</code> table:</p>
+
+			<table class = "bordered hanging">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Address</th>
+						<th>Franchise</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Alucard</td>
+						<td>500s</td>
+						<td>Hellsing Manor</td>
+						<td>Hellsing</td>
+					</tr>
+					<tr>
+						<td>Sherlock Holmes</td>
+						<td>34</td>
+						<td>221B Baker Street, London, UK</td>
+						<td>Sherlock Holmes</td>
+					</tr>
+					<tr>
+						<td>Winnie the Pooh</td>
+						<td>3</td>
+						<td>Hundred Acre Wood</td>
+						<td>Winnie the Pooh</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p><code>.compact</code> tables:</p>
+
+			<table class = "compact hanging">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Address</th>
+						<th>Franchise</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Alucard</td>
+						<td>500s</td>
+						<td>Hellsing Manor</td>
+						<td>Hellsing</td>
+					</tr>
+					<tr>
+						<td>Sherlock Holmes</td>
+						<td>34</td>
+						<td>221B Baker Street, London, UK</td>
+						<td>Sherlock Holmes</td>
+					</tr>
+					<tr>
+						<td>Winnie the Pooh</td>
+						<td>3</td>
+						<td>Hundred Acre Wood</td>
+						<td>Winnie the Pooh</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class = "compact bordered hanging">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Address</th>
+						<th>Franchise</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Alucard</td>
+						<td>500s</td>
+						<td>Hellsing Manor</td>
+						<td>Hellsing</td>
+					</tr>
+					<tr>
+						<td>Sherlock Holmes</td>
+						<td>34</td>
+						<td>221B Baker Street, London, UK</td>
+						<td>Sherlock Holmes</td>
+					</tr>
+					<tr>
+						<td>Winnie the Pooh</td>
+						<td>3</td>
+						<td>Hundred Acre Wood</td>
+						<td>Winnie the Pooh</td>
+					</tr>
+				</tbody>
+			</table>
+		
+			<p>All four tables above use <code>.hanging</code> to align the first column with the left margin.</p>
+
+			<h3 id = "image">Image</h3>
+
+			<figure>
+				<img src = "/image.png" height = "160px" style = "height: 160px; image-rendering: pixelated;">
+				<figcaption>
+					Images are responsive, just as you would expect. I also made them block elements instead of inline.
+				</figcaption>
+			</figure>
+
+			<h3 id = "quote">Quote</h3>
+
+			<p>
+				<code>&lt;blockquote&gt;</code> with a <code>&lt;cite&gt;</code> looks like this:
+			</p>
+
+			<blockquote>
+				<p>
+					Wikipedia is the best thing ever. Anyone in the world can write anything they want about
+					any subject so you know you are getting the best possible information.
+				</p>
+			</blockquote>
+			<p>
+				<small>— Michael Scott, <cite>from the 18th episode of the 3rd season of The Office</cite></small>
+			</p>
+
+			<h3 id = "link">Link</h3>
+
+			<p>
+				<code>.link</code> <a href="javascript:void(0)" class="link">looks like this.</a> Links with <code>&lt;strong&gt;</code> and <code>&lt;b&gt;</code> inside them have <a href = "javascript:void(0)" class="link"><b>thick underline</b></a>.
+			</p>
+
+			<p>
+				<a href="javascript:void(0)">Notice that <code>&lt;a&gt;</code> tag itself is not styled.</a>
+			</p>
+
+			<h3 id = "underline">Underline</h3>
+
+			<p>
+				<code>&lt;u&gt;</code> behaves <u>basically same as link</u>. <u><b>Bold underlines</b></u> work too.
+			</p>
+
+			<h3 id = "strikethrough">Strikethrough</h3>
+
+			<p>
+				<code>&lt;s&gt;</code> behaves <s>basically</s> same as link and underline. <s><b>Bold strikethroughs</b></s> work too.
+			</p>
+
+			<h3 id = "marked-text">Marked text</h3>
+
+			<p>
+				<mark>Using <code>&lt;mark&gt;</code> to highlight text will look like this.</mark>
+			</p>
+
+			<p>
+				Marked text inside <code>&lt;i&gt;</code> <i>will have <mark>skewed</mark> background.</i> But note that if you're using your own font, you'll have to adjust CSS to match it's italic version.
+			</p>
+
+			<h3 id = "abbreviation">Abbreviation</h3>
+
+			<p>
+				<code>&lt;abbr&gt;</code> has spaced out letters: <abbr>HTML</abbr>.
+				It is useful to detect them automatically using script.
+			</p>
+
+			<p>
+				When <code>title</code> is provided, underline will appear: <abbr title = "Hyper Text Transfer Protocol Secure">HTTPS</abbr>.
+			</p>
+
+			<h3 id = "figure">Figure and caption</h3>
+
+			<div class = "row" style = "align-items: flex-end; flex-wrap: nowrap; max-width: 100%; overflow-x: auto;">
+				<figure>
+					<div style = "
+						background: color-mix(in srgb, var(--color-yellow), transparent 40%); 
+						clip-path: polygon(0% 30%, 35% 30%, 35% 0%, 85% 0%, 100% 0%, 100% 30%, 100% 70%, 70% 70%, 70% 100%, 30% 100%, 0% 100%, 0% 70%);
+						width: 180px;
+						height: 110px;
+						padding: 0 10px 0 70px;
+						font-weight: 200;
+						font-size: 36px;
+						line-height: 0.95;
+					">some thing idk</div>
+					<figcaption>
+						Figure above is captioned with <code>&lt;figcaption&gt;</code>
+					</figcaption>
+				</figure>
+
+				<figure>
+					<pre><code>sudo chmod -R 777 /</code></pre>
+					<figcaption>
+						You can caption anything: media, tables, text, etc.
+					</figcaption>
+				</figure>
+
+				<figure>
+					<figcaption>
+						Placing caption above works too
+					</figcaption>
+					<div style = "
+						background: color-mix(in srgb, var(--color-orange), transparent 70%);
+						color: var(--color-red);
+						width: 8rem;
+						font-weight: 900;
+						font-variation-settings: 'FLAR' 100;
+						font-size: 1.3rem;
+						padding: 0.3em;
+						text-align: center;
+						place-content: center;
+						letter-spacing: 0.05em;
+						word-wrap: break-word;
+						line-height: 1.05;
+					">αβγδεζηθικλμνξοπρστυφχψω</div>
+				</figure>
+
+			</div>
+
+			<h3 id = "framed">Framed</h3>
+
+			<div class = "framed">
+				<code>.framed</code> looks like this.
+			</div>
+
+			<h3 id = "black-and-white">Black and white</h3>
+
+			<p class = "bw">
+				<code>.bw</code> looks like this <span title = "This pizza is very old">🍕</span>
+			</p>
+
+			<h3 id = "separators">Separators</h3>
+
+			<p>
+				<code>&lt;hr&gt;</code> looks like this:
+			</p>
+
+			<hr />
+
+			<p>
+				<code>.dinkus</code> looks like this:
+			</p>
+
+			<div class = "dinkus"></div>
+
+			<h2 id = "interactive-elements">Interactive Elements</h2>
+
+			<p>Here's what <code>forms.css</code> controls.</p>
+
+			<h3 id = "button">Button</h3>
+
+			<p>
+				Default <code>&lt;button&gt;</code> looks like this:
+			</p>
+
+			<div class = "row" style = "align-items: flex-start">
+				<button>Submit</button>
+				<figure style = "margin: 0">
+					<button disabled>Access</button>
+					<figcaption>
+						<small>Always clarify why something is disabled!</small>
+					</figcaption>
+				</figure>
+			</div>
+
+			<p>
+				If you want to fool around a bit, you can use colored buttons, using <code>.{color}</code> and <code>.text-{color}</code> classes:
+			</p>
+
+			<div class = "row demo-buttons-group" style = "margin-bottom: 1em;">
+				<button class="blue">Submit</button>
+				<button class="red">Delete</button>
+				<button class="green">Confirm</button>
+				<button class="purple">Later</button>
+				<button class="yellow">Collect</button>
+				<button class="orange">Buy</button>
+				<button class="black">Log out</button>
+			</div>
+
+			<div class = "row demo-buttons-group">
+				<button class="text-blue">Submit</button>
+				<button class="text-red">Delete</button>
+				<button class="text-green">Confirm</button>
+				<button class="text-purple">Later</button>
+				<button class="text-yellow">Collect</button>
+				<button class="text-orange">Buy</button>
+				<button class="text-black">Log out</button>
+			</div>
+			<br>
+
+			<p>
+				To get wide buttons, add <code>.block</code>:
+			</p>
+
+			<button class = "block">Unsubscribe from everything</button>
+			<br>
+
+			<p>To scale buttons, just use <code>font-size</code> CSS property:</p>
+
+			<div class = "row">
+				<button style = "font-size: 50%;">Submit</button>
+				<button style = "font-size: 125%;">Submit!</button>
+				<button style = "font-size: 200%;">Submit!!</button>
+			</div>
+			<br>
+
+			<p>
+				Note that buttons made with <code>&lt;input type="button|reset|submit"&gt;</code> are not styled. 
+				If you need them, just edit the selectors.
+			</p>
+
+			<h3 id = "inputs">Inputs</h3>
+
+			<p>They look like this:</p>
+
+			<form class = "row">
+				<label>
+					Text
+					<input type="text" required />
+				</label>
+				<label>
+					Number
+					<input type="number" size="6" required />
+				</label>
+				<label>
+					Password
+					<input type="password" required />
+				</label>
+				<label>
+					Color
+					<input type="color" value="#e2cfcf" required />
+				</label>
+				<label>
+					Datetime Local
+					<input type="datetime-local" required />
+				</label>
+				<label>
+					Time
+					<input type="time" required />
+				</label>
+			</form>
+
+			<h4 id = "textarea">Textarea</h4>
+
+			<p><code>&lt;textarea&gt;</code> look like this:</p>
+
+			<label>
+				Address
+				<textarea placeholder="308 Negra Arroyo Lane"></textarea>
+			</label>
+
+			<p>Notice that horizontal resizing is disabled by default.</p>
+
+			<h4 id = "checkbox">Checkbox</h4>
+
+			<p><code>&lt;input type="checkbox"&gt;</code> with label looks like this:</p>
+
+			<label>
+				<input type = "checkbox">
+				Recieve spam
+			</label>
+
+			<h4 id = "radio">Radio</h4>
+
+			<p><code>&lt;input type="radio"&gt;</code> with label looks like this:</p>
+
+			<label>
+				<input type="radio" name="browser" value="firefox">
+				Firefox
+			</label>
+			<label>
+				<input type="radio" name="browser" value="chrome">
+				Chrome
+			</label>
+			<label>
+				<input type="radio" name="browser" value="safari">
+				Safari
+			</label>
+
+			<h4 id = "select">Select</h4>
+
+			<p><code>&lt;select&gt;</code> looks like this:</p>
+
+			<select>
+				<option>Firefox</option>
+				<option>Chrome</option>
+				<option>Safari</option>
+				<option>Internet Explorer</option>
+			</select>
+
+			<h4 id = "range">Range</h4>
+
+			<p><code>&lt;input type="range"&gt;</code> is unstyled, and with <code>&lt;datalist&gt;</code> it looks like this:</p>
+
+			<input type="range" list="markers" min="20" max="80" step="10" />
+
+			<datalist id="markers">
+				<option value="20"></option>
+				<option value="30"></option>
+				<option value="40"></option>
+				<option value="50"></option>
+				<option value="60"></option>
+				<option value="70"></option>
+				<option value="80"></option>
+			</datalist>
+
+			<p>You can also use <code>.vertical</code> ranges:</p>
+
+			<div class = "row">
+				<input type="range" class="vertical" min="0" max="100" step="1" value="70"/>
+				<input type="range" class="vertical" min="0" max="100" step="1" value="33"/>
+				<input type="range" class="vertical" min="0" max="100" step="1" value="80"/>
+				<input type="range" class="vertical" min="0" max="100" step="1" value="50"/>
+				<input type="range" class="vertical" min="0" max="100" step="1" value="9"/>
+			</div>
+
+			<h4 id = "file">File</h4>
+
+			<p><code>&lt;input type="file"&gt;</code> reuses button styles:</p>
+
+			<div class = "row">
+				<input type = "file">
+				<input type = "file" class = "blue">
+			</div>
+
+			<h3 id = "fieldset">Fieldset</h3>
+
+			<p><code>&lt;fieldset&gt;</code> with <code>&lt;legend&gt;</code> looks like this:</p>
+
+			<form>
+				<fieldset>
+					<legend>Look! Do you like it?</legend>
+					<label>
+						<input type="radio" name="like" value="yes">
+						Yes
+					</label>
+					<label>
+						<input type="radio" name="like" value="yes">
+						Yes
+					</label>
+
+					<fieldset>
+						<legend>Can I nest it?</legend>
+						<label>
+							<input type="checkbox">
+							Yes
+						</label>
+						<label disabled>
+							<input type="checkbox">
+							No
+						</label>
+					</fieldset>
+					
+					<fieldset>
+						<legend>What do you think?</legend>
+						<label>
+							Comment
+							<textarea></textarea>
+						</label>
+					</fieldset>
+
+				</fieldset>
+			</form>
+
+			<small>
+				<p>✎<i> Tip: to align <code>&lt;legend&gt;</code>, use <code>margin</code> instead of <code>text-align</code>.</i></p>
+			</small>
+
+			<h3 id = "details">Details</h3>
+
+			<details>
+				<summary>This is an accordion (e.g. collapsible). Use it wisely!</summary>
+				<p>
+					<b>Accordions are extremely annoying.</b>
+					They’re generally considered bad UX and can be an accessibility nightmare — especially when
+					they are inside forms. This library does include a minimal style for them, but honestly,
+					I wouldn’t recommend using them. There’s almost always a better solution, so think twice before
+					resorting to <code>&lt;details&gt;</code>.
+				</p>
+			</details>
+
+			<h3 id = "progress">Progress</h3>
+
+			<p><code>&lt;progress&gt;</code> looks like this:</p>
+
+			<label>
+				Deleting C:\Users\dima\dev\boringcss...
+				<progress value = "64" max = "100">64%</progress>
+			</label>
+			
+			<label class = "text-red">
+				Applying <code>.text-red</code>...
+				<progress value = "88" max = "100">88%</progress>
+			</label>	
+
+			<label class = "text-green">
+				Done!
+				<progress value = "100" max = "100">100%</progress>
+			</label>
+
+			<p>
+				Sadly, indeterminate state is not supported because CSS kills it. 
+				Instead, <code>.spinner</code> is available:
+			</p>
+
+			<div class = "row" style = "gap: 0.4em">
+				<span class = "spinner"></span> Deleting C:\Users\dima\dev\boringcss...
+			</div>
+
+			<p>
+				<code>&lt;meter&gt;</code> is not supported either because it's impossible to properly style in Firefox.  
+				After fifteen damn years!
+			</p>
+
+		</div>
+
+	</section>
+
+	<section class = "container">
+
+		<h2 id = "font">Font</h2>
+
+		<p>
+			This page uses the Commissioner font by Kostas Bartsokas.
+			Its metrics are uneven, so to <a href = "//tonsky.me/blog/centering" class="link">vertically center</a>
+			text by uppercase characters, these overrides are applied:
+		</p>
+			
+		<div class = "row nowrap" style = "margin-block-start: -0.25em">
+							
+<pre class="hanging" style = "margin-block-start: 0">
+<code>@font-face { ...
+  <a href = "//developer.mozilla.org/en-US/docs/Web/CSS/@font-face/ascent-override" class="link">ascent-override:</a> 96.3%;
+  <a href = "//developer.mozilla.org/en-US/docs/Web/CSS/@font-face/descent-override" class="link">descent-override:</a> 25%;
+}</code>
+</pre>
+
+			<div class = "example-letter">
+				<div>K</div>
+				<small>
+					Perfectly centered
+				</small>
+			</div>				
+			
+			<div class = "example-letter" style = "font-family: 'Tahoma'">
+				<div>K</div>
+				<small>
+					Not centered (most fonts)
+				</small>
+			</div>
+
+		</div>
+
+		<p>The values are calculated by balancing the space above and below uppercase letters, where descent is 25% of the em size. Key formula is:</p>
+
+<pre>
+<code>D = your desired descent
+ascentOverride = (capHeight + D) / unitsPerEm × 100%
+descentOverride = D / unitsPerEm × 100%</code>
+</pre>
+
+		<p>For Commissioner it would be:</p>
+<pre>
+<code>D = 500
+capHeight = 1426
+unitsPerEm = 2000
+ascentOverride = (1426 + 500) / 2000 × 100% = 96.3%
+descentOverride = 500 / 2000 × 100% = 25%</code>
+</pre>
+
+		  <h3 id = "overrides">Overrides calculator (β)</h3>
+
+		  <p>If you want to use a different font, you can use the calculator below.</p>
+
+		  <div id = "overrides-calculator">
+
+			<div>
+				<p><b>Step 1:</b> Go to <a href="//seek-oss.github.io/capsize" target="_blank" class="link">Capsize</a>, pick or upload your font, and copy its metrics in JSON here:</p>
+				<textarea name = "metrics" class = "font-mono" rows="21" placeholder="{..."></textarea>
+			</div>
+
+			<div>
+				<p><b>Step 2:</b> Add the lines below into your <code>@font-face</code></p>
+<pre>
+<code>ascent-override: 
+descent-override:</code>
+</pre>
+			</div>
+
+		  </div>
+
+		  <script>
+			const textarea = document.querySelector("#overrides-calculator textarea")
+			const css = document.querySelector("#overrides-calculator pre > code")
+
+			function getOverrides() {
+				try {
+					const metrics = eval('(' + textarea.value + ')')
+					const D = metrics.unitsPerEm * 0.25
+					const overrides = {
+						ascent: (metrics.capHeight + D) / metrics.unitsPerEm * 100,
+						descent: D / metrics.unitsPerEm * 100
+					}
+					if (isNaN(overrides.ascent) || isNaN(overrides.descent)) throw Error()
+					css.textContent = `ascent-override: ${+overrides.ascent.toFixed(2)}%;\n`
+									+ `descent-override: ${+overrides.descent.toFixed(2)}%;`
+				} catch (err) {
+					console.error("Can't calculating font overrides:", err)
+					css.textContent = `ascent-override: \n` + `descent-override: `
+				}
+			}
+
+			textarea.addEventListener("input", getOverrides)
+			getOverrides()
+		  </script>
+
+	</section>
+
+	<section class = "container">
+
+		<h2 id = "feedback">Feedback</h2>
+
+		<p>If you have a suggestion or found a bug, please <a href = "//github.com/intredford/boringcss/issues" class="link" target="_blank">open an issue</a> or <a href = "mailto:mail@dimius.ru" class="link">email me.</a> </p>
+
+		<p>Before suggesting a change, please note that components must not require:</p>
+
+		<ul>
+			<li>JavaScript;</li>
+			<li>Complex markup or unintuitive applications of <code>label</code>, <code>:checked</code>, etc.</li>
+		</ul>
+
+		<p>Other than that, I'll be happy to recieve any feedback.</p>
+
+	</section>
+
+	<section class = "container">
+
+		<h2 id = "future-plans">Future plans</h2>
+
+		<p>I'm planning to add:</p>
+		<ul>
+			<li><a href="//developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog" class="link">Dialog</a> styles;</li>
+			<li><a href="//developer.mozilla.org/en-US/docs/Web/HTML/Element/picture" class="link">Picture</a> styles;</li>
+			<li>Traditional two-column forms (labels in one column, controls in another);</li>
+			<li><code>.line</code> inputs;</li>
+			<li><code>.quiet</code> buttons (no gradient, no press animation);</li>
+			<li>More clear division between modules;</li>
+			<li>More CSS variables to configure;</li>
+			<li>Maybe improved interactive documentation with code examples (most components are just a single tag, though).</li>
+		</ul>
+
+	</section>
+
+	<section class = "container">
+
+		<h2 id = "license">Licensing Stuff</h2>
+
+		<p>This library is MIT licensed, so you can do whatever you want.</p>
+
+		<p>For more info refer to <a href = "//github.com/intredford/boringcss" class="link" target="_blank">library's repo.</a></p>
+
+	</section>
+
+	<footer>
+
+		<div class = "container">
+
+			Boring CSS library by dimius
+
+			<aside>End of page</aside>
+			
+		</div>
+
+	</footer>
+
+	<div class="debugger is__active container">
+		<div class="debugger-cols">
+			<div></div><div></div><div></div><div></div>
+			<div></div><div></div><div></div><div></div>
+			<div></div><div></div><div></div><div></div>
+			<div></div><div></div><div></div><div></div>
+		</div>
+	</div>
+
+	<script src = "index.js"></script>
+
+</script>
+
+</body>
+</html>

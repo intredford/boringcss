@@ -1,0 +1,372 @@
+:root {
+	--list-character: "";
+	--table-vertical-cell-padding: 0.2em;
+	--table-horizontal-cell-padding: 0.4em;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-weight: 700;
+	line-height: 1.2;
+	margin-block-end: 0.1em;
+}
+h1, h2,
+.h1, .h2 {
+	margin-block-start: 2em;
+}
+h3, h4, h5, h6,
+.h3, .h4, .h5, .h6 {
+	margin-block-start: 3em;
+}
+
+h1, .h1 {
+	font-size: 3.5em;
+	line-height: 1em;
+}
+h2, .h2 {
+	font-size: 2.5em;
+}
+h3, .h3 {
+	font-size: 1.5em;
+}
+h4, .h4 {
+	font-size: 1em;
+}
+h5, .h5 {
+	font-size: 1em;
+}
+h6, .h6 {
+	font-size: 1em;
+}
+
+p {
+	margin-block-start: 0.5em;
+	margin-block-end: 0.5em;
+}
+
+h1+p, .h1+p/*, .h1+:has(p), h1+:has(p)*/, /* <- this might lag */
+h2+p, .h2+p/*, .h2+:has(p), h2+:has(p)*/,
+h3+p, .h3+p/*, .h3+:has(p), h3+:has(p)*/,
+h4+p, .h4+p/*, .h4+:has(p), h4+:has(p)*/,
+h5+p, .h5+p/*, .h5+:has(p), h5+:has(p)*/,
+h6+p, .h6+p/*, .h6+:has(p), h6+:has(p)*/ {
+  margin-block-start: 0;
+}
+
+ul, ol, pre, table, .framed, figure {
+	margin-block-start: 0.5em;
+	margin-block-end: 1em;
+}
+p+ul, p+ol, p+pre, p+table, p+.framed, p+figure {
+	margin-block-start: -0.5em;
+}
+ul, ol {
+	padding-inline-start: 0;
+	margin-inline-start: 2em;
+	margin-block-start: 0;
+}
+ul {
+	list-style-type: var(--list-character);
+}
+ul[type="none"],
+ol[type="none"] {
+	list-style-type: none;
+}
+li {
+	margin-block-end: 0.5em;
+}
+ol > li::marker {
+	font-variant-numeric: tabular-nums;
+}
+
+small, figcaption {
+	font-size: 80%;
+	font-weight: 430;
+	line-height: 1.1;
+	display: block;
+}
+
+code:not(pre code) {
+	color: var(--color-red);
+	font-size: 90%;
+	font-family: var(--font-mono);
+	word-break: keep-all;
+}
+pre {
+	font-size: 90%;
+    width: 100%;
+    overflow-x: auto;
+}
+
+pre, .font-mono {
+	line-height: 1.2;
+}
+.font-mono {
+	font-family: var(--font-mono);
+	font-size: 90%;
+}
+textarea.font-mono,
+input.font-mono {
+	font-size: 85%;
+}
+
+kbd {
+	border-radius: 0.2em;
+	font-size: 85%;
+	padding: 0.05em 0.1em;
+	margin: 0;
+	word-break: keep-all;
+	font-family: inherit;
+	padding: 0.1em 0.35em;
+	line-height: 1.2;
+	border: 1px solid var(--color-grayish);
+	box-shadow: 0 1px 0 color-mix(in oklab, var(--color-gray), transparent 85%);
+	color: inherit;
+	background: none;
+}
+kbd+kbd {
+	margin-inline-start: 2px;
+}
+
+table {
+	border-collapse: collapse;
+	margin-block-start: 0;
+	width: 100%;
+	max-width: 100%;
+	overflow-x: auto;
+	scrollbar-width: thin;
+}
+	table.hanging {
+		margin-inline-start: calc(-1 * var(--table-horizontal-cell-padding));
+	}
+thead {
+	border-block-end: 1px solid var(--color-light);
+}
+tr:not(:has(th)):hover {
+	background-color: var(--color-lighter);
+}
+td, th {
+	text-align: left;
+	/* font-variant-numeric: tabular-nums; */
+	padding: var(--table-vertical-cell-padding) var(--table-horizontal-cell-padding);
+	line-height: 1.2;
+}
+th {
+	font-weight: 600;
+	vertical-align: bottom;
+	padding-block-end: 0;
+}
+td {
+	vertical-align: top;
+}
+
+table.bordered {
+	margin-inline-start: unset;
+}
+	table.bordered.hanging {
+		margin-inline-start: calc(-1 * var(--table-horizontal-cell-padding)/2);
+	}
+table.bordered td,
+table.bordered th {
+	border: 1px solid var(--color-light);
+	padding: calc(var(--table-vertical-cell-padding)/2) calc(var(--table-horizontal-cell-padding)/2);
+}
+
+table.compact {
+	font-size: 0.8em;
+	width: fit-content;
+}
+
+blockquote {
+	margin: 0;
+	padding-inline-start: 2em;
+	font-style: italic;
+	width: fit-content;
+	line-height: 1.2;
+}
+blockquote + p:has(cite) {
+	padding-inline-start: 2em;
+}
+cite {
+	font-style: normal;
+}
+
+.link, u {
+	text-decoration: underline;
+	text-decoration-thickness: max(0.08em, 1px);
+	text-underline-offset: .25em;
+	text-decoration-skip-ink: none;
+}
+.link {
+	color: var(--color-blue);
+	text-decoration-color: color-mix(in srgb, currentColor, transparent 80%);
+}
+.link:visited {
+	color: var(--color-purple);
+}
+.link:hover {
+	text-decoration-color: color-mix(in srgb, currentColor, transparent 50%);
+}
+.link:focus {
+	text-decoration-color: currentColor;
+}
+.link:active {
+	color: var(--color-red);
+	text-decoration-color: currentColor;
+}
+
+.link:has(b), .link:has(strong),
+u:has(b), u:has(strong),
+ins:has(b), ins:has(strong),
+del:has(b), del:has(strong),
+s:has(b), s:has(strong),
+strike:has(b), strike:has(strong) {
+	text-decoration-thickness: 0.13em;
+}
+u:has(b), u:has(strong),
+ins:has(b), ins:has(strong),
+del:has(b), del:has(strong),
+s:has(b), s:has(strong),
+strike:has(b), strike:has(strong) {
+	text-decoration-color: currentColor;
+}
+
+del, s, strike {
+	text-decoration-line: line-through;
+}
+
+mark {
+	background-color: color-mix(in oklab, var(--color-yellow), transparent 40%);
+	color: inherit;
+	padding: 0 0.1em;
+}
+i:has(mark) mark,
+i:has(.framed) .framed {
+	clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+	padding-inline-start: 0.2em;
+	padding-inline-end: 0.3em;
+	margin-inline-start: -0.15em;
+}
+
+figure {
+	margin-inline-start: 0;
+	margin-inline-end: 0;
+	width: fit-content;
+}
+	figure > *:not(figcaption) {
+		margin-block-end: 0;
+	}
+	figure > figcaption:is(:first-child) {
+		margin-block-start: 0;
+		margin-block-end: 0.2em;
+	}
+
+figcaption {
+	margin-block-start: 0.2em;
+	max-width: min-content;
+	min-width: 100%;
+}
+
+abbr {
+	/* Letter-spacing heavily depends on your font and writing system.
+	   Cyrillic abbrs need slightly more space than latin. Here it would be around 0.08em */
+	letter-spacing: max(0.06em, 1px);
+	margin-right: -0.04em;
+}
+abbr[title] {
+	text-decoration-thickness: max(0.08em, 1px);
+	text-underline-offset: .25em;
+	text-decoration-skip-ink: none;
+	text-decoration-color: color-mix(in oklab, currentColor, transparent 50%);
+	text-decoration-style: dotted;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	background-color: var(--color-grayish);
+	margin: 1em 0;
+}
+.dinkus {
+	margin: 0.5em 0;
+	background: none;
+	height: 2em;
+	position: relative;
+}
+	.dinkus::after {
+		content: "* * *";
+		font-size: 2em;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		font-variation-settings: "FLAR" 100;
+		font-weight: 500;
+		letter-spacing: 0.05em;
+	}
+
+.framed {
+	padding: 0.3em 0.4em;
+	outline: 1px solid var(--color-grayish);
+	width: fit-content;
+}
+
+.bw {
+	filter: grayscale(1);
+}
+
+.font-sans {
+	font-family: var(--font-sans);
+}
+.font-serif {
+	font-family: var(--font-serif);
+}
+
+.text-blue {
+	color: var(--color-blue);
+}
+.text-red {
+	color: var(--color-red);
+}
+.text-green {
+	color: var(--color-green);
+}
+.text-purple {
+	color: var(--color-purple);
+}
+.text-yellow {
+	color: color-mix(in srgb, var(--color-yellow), var(--color-black) 40%);
+}
+.text-orange {
+	color: var(--color-orange);
+}
+.text-black {
+	color: var(--color-black);
+}
+.text-white {
+	color: var(--color-white);
+}
+.text-success {
+	color: var(--color-success);
+}
+
+@media (prefers-color-scheme: dark) {
+	.link {
+		text-decoration-color: color-mix(in srgb, currentColor, transparent 50%);
+	}
+	.link:hover {
+		text-decoration-color: color-mix(in srgb, currentColor, transparent 20%);
+	}
+	mark {
+		background-color: color-mix(in oklab, var(--color-yellow), transparent 65%);
+	}
+}
+
+@media screen and (width < 700px) {
+	table {
+		font-size: 0.8em;
+	}
+	table.compact {
+		font-size: 0.65em;
+	}
+}
