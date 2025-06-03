@@ -2,10 +2,22 @@
 	--button-pseudovolume: 2px;
 }
 
-*[disabled], *:disabled {
+[disabled], :disabled {
 	cursor: not-allowed;
 	opacity: 0.6;
-	color: color-mix(in oklab, currentColor, transparent 20%)
+	color: color-mix(in oklab, currentColor, transparent 20%);
+}
+
+label:has([disabled]),
+label:has(:disabled) {
+	cursor: not-allowed;
+	opacity: 0.6;
+	color: color-mix(in oklab, currentColor, transparent 20%);
+}
+label :disabled,
+label [disabled] {
+	opacity: 1;
+	color: currentColor;
 }
 
 button,
@@ -139,9 +151,9 @@ input.black::file-selector-button {
 	color: var(--color-white);
 }
 
-button:active:not(:disabled),
-::file-selector-button:active,
-input[type="file"]:active::file-selector-button {
+button:active:not(:disabled):not([disabled]),
+:not(:disabled):not([disabled])::file-selector-button:active,
+input[type="file"]:active:not(:disabled):not([disabled])::file-selector-button {
 	position: relative;
 	/* Using transform causes button to resize by 1px on Firefox. It's probably unfixable.
 	Has something to do with anti-aliasing: https://stackoverflow.com/questions/39828912/css-translate-is-affecting-element-size-on-chrome */
