@@ -859,7 +859,7 @@ descent-override:</code>
 					css.textContent = `ascent-override: ${+overrides.ascent.toFixed(2)}%;\n`
 									+ `descent-override: ${+overrides.descent.toFixed(2)}%;`
 				} catch (err) {
-					console.error("Can't calculating font overrides:", err)
+					console.error("Can't calculate font overrides.", err)
 					css.textContent = `ascent-override: \n` + `descent-override: `
 				}
 			}
